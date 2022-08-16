@@ -6,17 +6,6 @@ import sys
 import time
 
 os.system("clear")
-password =input("[•] Password ---> ")
-time.sleep(5)
-                                
-if password=="King":
-	print("[•] Correct...")
-	time.sleep(5)
-else:
-		print("\033[91m[×] Wrong Password!!!")
-		time.sleep(9999999999)
-os.system("clear")
-
 print("""\033[35m	
    ____  ____       ____       _   _   _             _  	
   |  _ \|  _ \  ___/ ___|     / \ | |_| |_ __ _  ___| | __
